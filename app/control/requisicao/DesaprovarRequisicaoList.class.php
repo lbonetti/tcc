@@ -70,7 +70,7 @@ class DesaprovarRequisicaoList extends TPage
         // add a row for the form title
         $row = $table->addRow();
         $row->class = 'tformtitle'; // CSS class
-        $row->addCell( new TLabel('Desaprovar Requisicao') )->colspan = 2;
+        $row->addCell( new TLabel('Corrigir requisição') )->colspan = 2;
         
 
         // create the form fields

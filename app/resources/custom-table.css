@@ -4,7 +4,15 @@
 
 .customized-table .tdatagrid_col, .tdatagrid_action
 {
-  background-color: #5C9735 !important;
+  //background-color: #5C9735 !important;
+  background: #fafafa !important;
+  background: -moz-linear-gradient(top, #fafafa 0%, #f3f3f3 100%) !important;
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #fafafa), color-stop(100%, #f3f3f3)) !important;
+  background: -webkit-linear-gradient(top, #fafafa 0%, #f3f3f3 100%) !important;
+  background: -o-linear-gradient(top, #fafafa 0%, #f3f3f3 100%) !important;
+  background: -ms-linear-gradient(top, #fafafa 0%, #f3f3f3 100%) !important;
+  background: linear-gradient(to bottom, #fafafa 0%, #f3f3f3 100%) !important;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#f3f3f3', GradientType=0 ) !important;
 }
 
 .customized-table .tdatagrid_col_over
@@ -34,7 +42,7 @@
   border-top     : 0;
   border-bottom  : 1px solid #dddddd;;
   background-color: white;
-  color: white;
+  color: #555555;
   -moz-user-select: none;
   user-select: none;
   cursor: default;

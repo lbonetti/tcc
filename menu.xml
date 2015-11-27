@@ -57,7 +57,7 @@
                 <icon>fa:pencil fa-fw white</icon>
                 <action>RequisicaoList</action>
             </menuitem>
-            <menuitem label='Desaprovar requisição'>
+            <menuitem label='Corrigir requisição'>
                 <icon>fa:history fa-fw white</icon>
                 <action>DesaprovarRequisicaoList</action>
             </menuitem>
@@ -73,7 +73,7 @@
                 <icon>fa:pencil fa-fw white</icon>
                 <action>CessaoList</action>
             </menuitem>
-            <menuitem label='Desaprovar cessão'>
+            <menuitem label='Corrigir cessão'>
                 <icon>fa:history fa-fw white</icon>
                 <action>DesaprovarCessaoList</action>
             </menuitem>

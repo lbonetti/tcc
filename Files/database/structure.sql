@@ -697,7 +697,106 @@ CREATE  TABLE IF NOT EXISTS `usuario_grupo` (
 DEFAULT CHARACTER SET = utf8;
 
 
+-- -----------------------------------------------------
 
+-- Table `recebimento`
+
+-- -----------------------------------------------------
+
+DROP TABLE IF EXISTS `recebimento` ;
+
+
+
+CREATE  TABLE IF NOT EXISTS `recebimento` (
+
+  `id` INT NOT NULL ,
+
+  `campus_id` INT(11) NOT NULL ,
+
+  `srp_id` INT(11) NOT NULL ,
+
+  `entrada` DATE NOT NULL,
+
+  `observacao` TEXT,
+
+  PRIMARY KEY (`id`) ,
+
+  INDEX `fk_recebimento_campus1` (`campus_id` ASC) ,
+
+  INDEX `fk_recebimento_srp1` (`srp_id` ASC) ,
+
+  CONSTRAINT `fk_recebimento_campus1`
+
+    FOREIGN KEY (`campus_id` )
+
+    REFERENCES `campus` (`id` )
+
+    ON DELETE NO ACTION
+
+    ON UPDATE NO ACTION,
+
+  CONSTRAINT `fk_recebimento_srp1`
+
+    FOREIGN KEY (`srp_id` )
+
+    REFERENCES `srp` (`id` )
+
+    ON DELETE NO ACTION
+
+    ON UPDATE NO ACTION)
+
+ENGINE = InnoDB
+
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+
+-- Table `item_recebimento`
+
+-- -----------------------------------------------------
+
+DROP TABLE IF EXISTS `item_recebimento` ;
+
+
+
+CREATE  TABLE IF NOT EXISTS `item_recebimento` (
+
+  `id` INT NOT NULL ,
+
+  `item_id` INT(11) NOT NULL ,
+
+  `recebimento_id` INT NOT NULL ,
+
+  `quantidade` INT,
+
+  PRIMARY KEY (`id`) ,
+
+  INDEX `fk_item_recebimento_item1` (`item_id` ASC) ,
+
+  INDEX `fk_item_recebimento_recebimento1` (`recebimento_id` ASC) ,
+
+  CONSTRAINT `fk_item_recebimento_item1`
+
+    FOREIGN KEY (`item_id` )
+
+    REFERENCES `item` (`id` )
+
+    ON DELETE NO ACTION
+
+    ON UPDATE NO ACTION,
+
+  CONSTRAINT `fk_item_recebimento_recebimento1`
+
+    FOREIGN KEY (`recebimento_id` )
+
+    REFERENCES `recebimento` (`id` )
+
+    ON DELETE NO ACTION
+
+    ON UPDATE NO ACTION)
+
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------

@@ -1,7 +1,11 @@
 <?php
 
 use Adianti\Control\TPage;
+use Adianti\Registry\TSession;
+use Adianti\Widget\Container\THBox;
 use Adianti\Widget\Container\TTable;
+use Adianti\Widget\Form\TButton;
+use Adianti\Widget\Form\TEntry;
 use Adianti\Widget\Form\TForm;
 use Adianti\Widget\Form\TLabel;
 use Adianti\Widget\Wrapper\TDBSeekButton;
@@ -50,18 +54,44 @@ class RecebimentoList extends TPage {
         $row->addCell(new TLabel('Consulta Recebimento'))->colspan=2;
         
         $campusID = new TDBSeekButton('campusID', 'saciq', 'form_recebimento', 'Campus', 'nome', 'campusID', 'campusNome');
-        $campusNome = new Adianti\Widget\Form\TEntry('campusNome');
+        $campusNome = new TEntry('campusNome');
+        $campusNome->setSize('100%');
         
         $row = $table->addRow();
         $row->addCell(new TLabel('Câmpus:'));
-        $box = new Adianti\Widget\Container\THBox;
+        $box = new THBox;
         $box->add($campusID);
         $box->add($campusNome)->style = 'width: 75%; display: inline-block';
         $row->addCell($box);
         
         $this->form->setFields(array($campusID, $campusNome));
         
+        // keep the form filled during navigation with session data
+        $this->form->setData( TSession::getValue('Recebimento_filter_data') );
+        
+        $btnBusca = new TButton('btnBusca');
+        //$btnNovo = newTButton('btnNovo');
+        
+        $btnBusca->setAction(new Adianti\Control\TAction(array($this, 'onSearch')),'Buscar');
+        $btnBusca->setImage('ico_new.png');
+        
+        $this->form->addField($btnBusca);
+        
+        $buttons_box = new THBox;
+        $buttons_box->add($btnBusca);
+        
+        $row=$table->addRow();
+        $row->class='tformaction'; //CSS
+        $row->addCell($buttons_box)->colspan=2;
+        
+        
+        
+        
         parent::add($this->form);
+        
+    }
+    
+    public function onSearch($param){
         
     }
 

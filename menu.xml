@@ -81,6 +81,10 @@
                 <icon>fa:file-pdf-o fa-fw white</icon>
                 <action>DocCessaoList</action>
             </menuitem>
+            <menuitem label='Receber quantitativo'>
+                <icon>fa:arrow-circle-down fa-fw white</icon>
+                <action>RecebimentoList</action>
+            </menuitem>
         </menu>
     </menuitem>
     <menuitem label='Relatórios'>
